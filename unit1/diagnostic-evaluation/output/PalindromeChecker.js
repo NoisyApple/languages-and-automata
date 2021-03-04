@@ -34,6 +34,7 @@ class PalindromeChecker {
         _phrase.set(this, void 0);
         _leftStack.set(this, void 0);
         _rightStack.set(this, void 0);
+        // Returns if the given string is a palindrome or not.
         this.isPalindrome = () => {
             const trimmedPhrase = __classPrivateFieldGet(this, _phrase).replace(/\s+/g, "");
             for (let i = 0; i < trimmedPhrase.length; i++)
@@ -48,6 +49,7 @@ class PalindromeChecker {
             }
             return true;
         };
+        // Returns if the given string is a palindrome or not (CLI visual implementation).
         this.isPalindromeVisual = () => __awaiter(this, void 0, void 0, function* () {
             const trimmedPhrase = __classPrivateFieldGet(this, _phrase).replace(/\s+/g, "");
             let leftStackEvaluatedValues = "";
@@ -75,10 +77,12 @@ class PalindromeChecker {
             }
             process.stdout.write(`[${chalk_1.default.yellowBright("RESULT")}] > It is${isPalindrome ? "" : chalk_1.default.redBright(" not")} a palindrome`);
         });
+        // [UTIL] Clears the terminal and writes the given string.
         _flushAndPrint.set(this, (value) => {
             process.stdout.write("\x1Bc");
             process.stdout.write(value);
         });
+        // [UTIL] Generates a timeout of the given time in milliseconds.
         _timeout.set(this, (ms) => {
             return new Promise((resolve) => setTimeout(resolve, ms));
         });

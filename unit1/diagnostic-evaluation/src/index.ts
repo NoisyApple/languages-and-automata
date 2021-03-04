@@ -1,4 +1,12 @@
 import PalindromeChecker from "./PalindromeChecker";
+import fs from "fs";
 
-const checker = new PalindromeChecker("A santa lived as a devil at nasa");
-checker.isPalindromeVisual();
+fs.readFile("testInputFile.txt", (e, d) => {
+  if (e) {
+    console.error(e);
+    return;
+  }
+
+  const checker = new PalindromeChecker(d.toString());
+  checker.isPalindromeVisual();
+});
