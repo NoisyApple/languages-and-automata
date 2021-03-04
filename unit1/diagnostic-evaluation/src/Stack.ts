@@ -21,15 +21,19 @@ export default class Stack<T> {
   };
 
   // Returns the popped node at the peek of the stack.
-  pop = (): T => {
-    const poppedNode = this.#peek;
-    const newPeek = this.#peek.getNext();
+  pop = (): T | null => {
+    if (this.#size > 0) {
+      const poppedNode = this.#peek;
+      const newPeek = this.#peek.getNext();
 
-    this.#peek = newPeek;
-    poppedNode.setNext(null);
-    this.#size--;
+      this.#peek = newPeek;
+      poppedNode.setNext(null);
+      this.#size--;
 
-    return poppedNode.getValue();
+      return poppedNode.getValue();
+    } else {
+      return null;
+    }
   };
 
   // Returns the size of the stack.
@@ -41,12 +45,14 @@ export default class Stack<T> {
   toString = (): string => {
     let data = "";
 
-    let currentNode = this.#peek;
+    if (this.#size > 0) {
+      let currentNode = this.#peek;
 
-    do {
-      data = currentNode.getValue() + data;
-      currentNode = currentNode.getNext();
-    } while (currentNode != null);
+      do {
+        data = currentNode.getValue() + data;
+        currentNode = currentNode.getNext();
+      } while (currentNode != null);
+    }
 
     return data;
   };

@@ -1,5 +1,5 @@
-// Custom type that only accepts letters from the alphabet.
-export type Letter =
+// Custom type that only accepts alphanumeric values.
+export type AlphNum =
   | "a"
   | "b"
   | "c"
@@ -53,4 +53,14 @@ export type Letter =
   | "W"
   | "X"
   | "Y"
-  | "Z";
+  | "Z"
+  | "1"
+  | "2"
+  | "3"
+  | "4"
+  | "5"
+  | "6"
+  | "7"
+  | "8"
+  | "9"
+  | "0";

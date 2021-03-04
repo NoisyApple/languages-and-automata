@@ -12,9 +12,12 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     }
     return privateMap.get(receiver);
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var _peek, _size;
 Object.defineProperty(exports, "__esModule", { value: true });
-const Node_1 = require("./Node");
+const Node_1 = __importDefault(require("./Node"));
 // Models a generic node based stack.
 class Stack {
     constructor() {
@@ -29,12 +32,17 @@ class Stack {
         };
         // Returns the popped node at the peek of the stack.
         this.pop = () => {
-            const poppedNode = __classPrivateFieldGet(this, _peek);
-            const newPeek = __classPrivateFieldGet(this, _peek).getNext();
-            __classPrivateFieldSet(this, _peek, newPeek);
-            poppedNode.setNext(null);
-            __classPrivateFieldSet(this, _size, +__classPrivateFieldGet(this, _size) - 1);
-            return poppedNode.getValue();
+            if (__classPrivateFieldGet(this, _size) > 0) {
+                const poppedNode = __classPrivateFieldGet(this, _peek);
+                const newPeek = __classPrivateFieldGet(this, _peek).getNext();
+                __classPrivateFieldSet(this, _peek, newPeek);
+                poppedNode.setNext(null);
+                __classPrivateFieldSet(this, _size, +__classPrivateFieldGet(this, _size) - 1);
+                return poppedNode.getValue();
+            }
+            else {
+                return null;
+            }
         };
         // Returns the size of the stack.
         this.size = () => {
@@ -43,11 +51,13 @@ class Stack {
         // Gathers the values from each node into a string and then returns it.
         this.toString = () => {
             let data = "";
-            let currentNode = __classPrivateFieldGet(this, _peek);
-            do {
-                data = currentNode.getValue() + data;
-                currentNode = currentNode.getNext();
-            } while (currentNode != null);
+            if (__classPrivateFieldGet(this, _size) > 0) {
+                let currentNode = __classPrivateFieldGet(this, _peek);
+                do {
+                    data = currentNode.getValue() + data;
+                    currentNode = currentNode.getNext();
+                } while (currentNode != null);
+            }
             return data;
         };
         __classPrivateFieldSet(this, _peek, null);
