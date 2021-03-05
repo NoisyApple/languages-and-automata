@@ -4,10 +4,10 @@ A CLI based program which evaluates a string taken from an external file and tel
 
 ## Table of Contents
 
-- [Requirements](#📃-requirements)
-- [Installation](#⚙-installation)
-- [How it works](#🕹-how-it-works)
-- [How to use](#🚀-how-to-use)
+- [Requirements](#-requirements)
+- [Installation](#-installation)
+- [How it works](#-how-it-works)
+- [How to use](#-how-to-use)
 
 ## 📃 Requirements
 
