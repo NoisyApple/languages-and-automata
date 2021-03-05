@@ -51,9 +51,7 @@ When the program is executed it will ask you a couple of questions on how you wa
 
 The first question the program shows asks to enter the path of the file where it will take data from, here you can provide either a relative or an absolute path.
 
-<p  align="center">
-<img  src="./readme-images/01.png"/>
-</p>
+<img src="./readme-images/01.png"/>
 
 📝**Note:** the source should be a **plain text** file, therefore, if you provide a bad source the program may return an error.
 
@@ -61,16 +59,10 @@ The first question the program shows asks to enter the path of the file where it
 
 A self explanatory question, this will decide whether to show the cool graphical CLI output or the boring and simple result of the evaluation. You decide. 😉
 
-<p  align="center">
-<img  src="./readme-images/02.png"/>
-</p>
+<img src="./readme-images/02.png"/>
 
 Enjoy!!! 🎉
 
-<p  align="center">
-<img  src="./readme-images/03.gif"/>
-</p>
+<img src="./readme-images/03.gif"/>
 
-<p  align="center">
-<img  src="./readme-images/04.gif"/>
-</p>
+<img src="./readme-images/04.gif"/>
