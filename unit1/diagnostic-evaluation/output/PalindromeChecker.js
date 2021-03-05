@@ -36,7 +36,7 @@ class PalindromeChecker {
         _rightStack.set(this, void 0);
         // Returns if the given string is a palindrome or not.
         this.isPalindrome = () => {
-            const trimmedPhrase = __classPrivateFieldGet(this, _phrase).replace(/\s+/g, "");
+            const trimmedPhrase = __classPrivateFieldGet(this, _phrase).replace(/\s|,|\.|'/g, "");
             for (let i = 0; i < trimmedPhrase.length; i++)
                 __classPrivateFieldGet(this, _leftStack).push(trimmedPhrase[i]);
             for (let i = trimmedPhrase.length - 1; i >= 0; i--)
@@ -51,7 +51,7 @@ class PalindromeChecker {
         };
         // Returns if the given string is a palindrome or not (CLI visual implementation).
         this.isPalindromeVisual = () => __awaiter(this, void 0, void 0, function* () {
-            const trimmedPhrase = __classPrivateFieldGet(this, _phrase).replace(/\s+/g, "");
+            const trimmedPhrase = __classPrivateFieldGet(this, _phrase).replace(/\s|,|\.|'/g, "");
             let leftStackEvaluatedValues = "";
             let rightStackEvaluatedValues = "";
             let isPalindrome = true;
@@ -64,7 +64,7 @@ class PalindromeChecker {
                 const rightValue = __classPrivateFieldGet(this, _rightStack).pop();
                 isPalindrome = leftValue.toLowerCase() === rightValue.toLowerCase();
                 const color = isPalindrome ? chalk_1.default.bgGreenBright : chalk_1.default.bgRedBright;
-                __classPrivateFieldGet(this, _flushAndPrint).call(this, `ORIGINAL STRING => '${chalk_1.default.cyan(__classPrivateFieldGet(this, _phrase))}'\n\n` +
+                __classPrivateFieldGet(this, _flushAndPrint).call(this, `ORIGINAL STRING => ${chalk_1.default.cyan(__classPrivateFieldGet(this, _phrase))}\n\n` +
                     `[${chalk_1.default.yellowBright("L Stack")}] > ${chalk_1.default.gray(__classPrivateFieldGet(this, _leftStack).toString())}${color(leftValue)}${chalk_1.default.greenBright(leftStackEvaluatedValues)}` +
                     "\n" +
                     `[${chalk_1.default.yellowBright("R Stack")}] > ${chalk_1.default.gray(__classPrivateFieldGet(this, _rightStack).toString())}${color(rightValue)}${chalk_1.default.greenBright(rightStackEvaluatedValues)}` +
@@ -75,7 +75,7 @@ class PalindromeChecker {
                 if (!isPalindrome)
                     break;
             }
-            process.stdout.write(`[${chalk_1.default.yellowBright("RESULT")}] > It is${isPalindrome ? "" : chalk_1.default.redBright(" not")} a palindrome`);
+            process.stdout.write(`[${chalk_1.default.yellowBright("RESULT")}] > It is${isPalindrome ? "" : chalk_1.default.redBright(" not")} a palindrome.`);
         });
         // [UTIL] Clears the terminal and writes the given string.
         _flushAndPrint.set(this, (value) => {

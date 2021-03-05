@@ -16,7 +16,7 @@ export default class PalindromeChecker {
 
   // Returns if the given string is a palindrome or not.
   isPalindrome = (): boolean => {
-    const trimmedPhrase = this.#phrase.replace(/\s+/g, "");
+    const trimmedPhrase = this.#phrase.replace(/\s|,|\.|'/g, "");
 
     for (let i = 0; i < trimmedPhrase.length; i++)
       this.#leftStack.push(trimmedPhrase[i] as AlphNum);
@@ -35,7 +35,7 @@ export default class PalindromeChecker {
 
   // Returns if the given string is a palindrome or not (CLI visual implementation).
   isPalindromeVisual = async (): Promise<void> => {
-    const trimmedPhrase = this.#phrase.replace(/\s+/g, "");
+    const trimmedPhrase = this.#phrase.replace(/\s|,|\.|'/g, "");
     let leftStackEvaluatedValues = "";
     let rightStackEvaluatedValues = "";
     let isPalindrome = true;
@@ -54,7 +54,7 @@ export default class PalindromeChecker {
       const color = isPalindrome ? chalk.bgGreenBright : chalk.bgRedBright;
 
       this.#flushAndPrint(
-        `ORIGINAL STRING => '${chalk.cyan(this.#phrase)}'\n\n` +
+        `ORIGINAL STRING => ${chalk.cyan(this.#phrase)}\n\n` +
           `[${chalk.yellowBright("L Stack")}] > ${chalk.gray(
             this.#leftStack.toString()
           )}${color(leftValue)}${chalk.greenBright(leftStackEvaluatedValues)}` +
@@ -78,7 +78,7 @@ export default class PalindromeChecker {
     process.stdout.write(
       `[${chalk.yellowBright("RESULT")}] > It is${
         isPalindrome ? "" : chalk.redBright(" not")
-      } a palindrome`
+      } a palindrome.`
     );
   };
 
